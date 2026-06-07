@@ -1,0 +1,22 @@
+# Dataset and Data processing
+data/raw/
+data/processed/
+
+# Model checkpoints and logs
+outputs/checkpoints/
+outputs/logs/
+*.pt
+*.pth
+*.onnx
+*.tflite
+
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+.venv/
+env/
