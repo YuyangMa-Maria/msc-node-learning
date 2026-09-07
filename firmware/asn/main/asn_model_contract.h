@@ -1,0 +1,15 @@
+// Dimensions and preprocessing constants shared with the exported ASN models.
+
+#pragma once
+
+#define ASN_SAMPLE_RATE_HZ 16000
+#define ASN_WINDOW_SAMPLES 80000
+#define ASN_N_FFT 1024
+#define ASN_HOP_LENGTH 320
+#define ASN_N_MELS 64
+#define ASN_FEATURE_FRAMES 251
+#define ASN_REPRESENTATION_COUNT 64
+#define ASN_VALIDITY_OUTPUT_COUNT 4
+#define ASN_RISK_TEMPERATURE 0.452963233f
+#define ASN_VALIDITY_TEMPERATURE 0.824436009f
+#define ASN_VALIDITY_INVALID_INDEX 2

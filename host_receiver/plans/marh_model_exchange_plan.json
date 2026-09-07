@@ -1,0 +1,10 @@
+[
+  {"at_s": 5, "command": "BLE RESCAN"},
+  {"at_s": 10, "command": "STATUS"},
+  {"at_s": 20, "command": "MARH JOIN"},
+  {"at_s": 30, "command": "MODEL PUSH"},
+  {"at_s": 45, "command": "MODEL PULL"},
+  {"at_s": 60, "command": "MODEL ROLLBACK"},
+  {"at_s": 70, "command": "MARH LEAVE"},
+  {"at_s": 80, "command": "STATUS"}
+]

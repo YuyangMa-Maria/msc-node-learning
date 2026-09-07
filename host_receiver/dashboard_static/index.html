@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Node Learning Hardware Console</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">POST-DISASTER LOCAL SENSING</p>
+      <h1>Node Learning Hardware Console</h1>
+    </div>
+    <div class="header-status">
+      <span id="stream-status" class="status-dot offline"></span>
+      <span id="stream-label">Receiver offline</span>
+      <span id="clock">--:--:--</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="control-band" aria-label="Experiment controls">
+      <div class="control-group">
+        <span class="control-label">Sampling mode</span>
+        <div class="segmented" role="group">
+          <button id="mode-auto" data-command="MODE AUTO">Automatic</button>
+          <button id="mode-manual" data-command="MODE MANUAL">Manual</button>
+        </div>
+      </div>
+      <div class="control-group grow">
+        <span class="control-label">Manual acquisition</span>
+        <div class="button-row">
+          <button class="command primary" data-command="SAMPLE VSN">Capture VSN</button>
+          <button class="command primary" data-command="SAMPLE ASN">Capture ASN</button>
+          <button class="command accent" data-command="SAMPLE BOTH">Capture both</button>
+        </div>
+      </div>
+      <div class="control-group">
+        <span class="control-label">Helper</span>
+        <div class="button-row">
+          <button class="command" data-command="MARH JOIN">Join</button>
+          <button class="command" data-command="MARH LEAVE">Leave</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="alert-banner" class="alert-banner hidden" aria-live="polite">
+      <div class="alert-banner-main">
+        <span id="alert-banner-severity" class="alert-severity info">INFO</span>
+        <div>
+          <strong id="alert-banner-headline">No active warning</strong>
+          <p id="alert-banner-message">Awaiting fused evidence</p>
+        </div>
+      </div>
+      <div class="alert-banner-meta">
+        <span>Evidence <strong id="alert-banner-evidence">none</strong></span>
+        <span>Action <strong id="alert-banner-action">continue monitoring</strong></span>
+      </div>
+    </section>
+
+    <section class="topology" aria-label="Live sensing topology">
+      <article id="vsn-card" class="node-card">
+        <div class="node-heading">
+          <div><span class="node-id">VSN</span><h2>Visual node</h2></div>
+          <div class="node-badges"><span id="vsn-online" class="connectivity offline">Offline</span><span id="vsn-state" class="badge neutral">Waiting</span></div>
+        </div>
+        <div class="metric"><span>Risk proxy</span><strong id="vsn-risk">--</strong></div>
+        <div class="bar"><span id="vsn-risk-bar"></span></div>
+        <div class="metric compact"><span>Confidence</span><strong id="vsn-confidence">--</strong></div>
+        <div class="metric compact"><span>Pipeline</span><strong id="vsn-latency">--</strong></div>
+        <div class="sample-meta" id="vsn-meta">No sample received</div>
+      </article>
+
+      <div id="vsn-link" class="link-path"><span>local decision</span></div>
+
+      <article id="fusion-card" class="node-card fusion-card">
+        <div class="node-heading">
+          <div><span class="node-id">REGION</span><h2>Risk fusion</h2></div>
+          <span id="risk-level" class="level-badge">L--</span>
+        </div>
+        <div class="fusion-risk" id="fusion-risk">--</div>
+        <div class="metric compact"><span>Trend</span><strong id="risk-trend">--</strong></div>
+        <div class="metric compact"><span>Active nodes</span><strong id="active-nodes">--</strong></div>
+        <div id="alert-summary" class="alert-summary info">
+          <div class="alert-heading">
+            <span id="alert-severity" class="alert-severity info">INFO</span>
+            <strong id="alert-headline">Awaiting fused evidence</strong>
+          </div>
+          <div class="alert-message" id="alert-message">No regional decision is available.</div>
+          <div class="alert-details">
+            <span>Evidence <strong id="alert-evidence">none</strong></span>
+            <span>Action <strong id="alert-action">--</strong></span>
+          </div>
+        </div>
+      </article>
+
+      <div id="receiver-link" class="link-path"><span>NLJSON result</span></div>
+
+      <article id="receiver-card" class="node-card receiver-card">
+        <div class="node-heading">
+          <div><span class="node-id">EXTERNAL</span><h2>Receiver / MARH</h2></div>
+          <span id="marh-state" class="badge neutral">Receiver</span>
+        </div>
+        <div class="metric compact"><span>BLE link</span><strong id="ble-state">Offline</strong></div>
+        <div class="metric compact"><span>Model version</span><strong id="model-version">--</strong></div>
+        <div class="metric compact"><span>Helper advice</span><strong id="marh-recommendation">Not requested</strong></div>
+        <div class="button-row model-controls">
+          <button class="command" data-command="MODEL PUSH">Push head</button>
+          <button class="command" data-command="MODEL PULL">Pull head</button>
+          <button class="command" data-command="MODEL ROLLBACK">Rollback</button>
+        </div>
+      </article>
+
+      <article id="asn-card" class="node-card asn-card">
+        <div class="node-heading">
+          <div><span class="node-id">ASN</span><h2>Acoustic node</h2></div>
+          <div class="node-badges"><span id="asn-online" class="connectivity offline">Offline</span><span id="asn-state" class="badge neutral">Waiting</span></div>
+        </div>
+        <div class="metric"><span>Risk proxy</span><strong id="asn-risk">--</strong></div>
+        <div class="bar"><span id="asn-risk-bar"></span></div>
+        <div class="metric compact"><span>Confidence</span><strong id="asn-confidence">--</strong></div>
+        <div class="metric compact"><span>Transport</span><strong>20-byte BLE</strong></div>
+        <div class="sample-meta" id="asn-meta">No sample received</div>
+      </article>
+
+      <div id="asn-link" class="link-path asn-link"><span>BLE summary</span></div>
+    </section>
+
+    <section class="analysis-grid">
+      <div class="panel workflow-panel">
+        <div class="panel-heading"><h2>Acquisition workflow</h2><span id="last-command">Idle</span></div>
+        <div class="workflow">
+          <div id="step-request" class="workflow-step"><span>1</span><b>Request</b><small>Host command</small></div>
+          <div id="step-vsn" class="workflow-step"><span>2A</span><b>Visual analysis</b><small>Local INT8</small></div>
+          <div id="step-asn" class="workflow-step"><span>2B</span><b>Acoustic analysis</b><small>Log-Mel + INT8</small></div>
+          <div id="step-transfer" class="workflow-step"><span>3</span><b>Exchange</b><small>BLE summary</small></div>
+          <div id="step-fusion" class="workflow-step"><span>4</span><b>Fuse</b><small>Quality-aware</small></div>
+          <div id="step-alert" class="workflow-step"><span>5</span><b>Forward</b><small>Receiver alert</small></div>
+        </div>
+      </div>
+
+      <div class="panel chart-panel">
+        <div class="panel-heading"><h2>Fused risk history</h2><span>Latest 30 decisions</span></div>
+        <canvas id="risk-chart" width="900" height="260"></canvas>
+      </div>
+    </section>
+
+    <section class="panel event-panel">
+      <div class="panel-heading"><h2>Structured event log</h2><span id="event-count">0 events</span></div>
+      <div class="event-table-wrap">
+        <table>
+          <thead><tr><th>Time</th><th>Event</th><th>Node / mode</th><th>Result</th></tr></thead>
+          <tbody id="event-log"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>Structural risk proxy for research evaluation; not a certified collapse probability.</footer>
+  <script src="/app.js"></script>
+</body>
+</html>

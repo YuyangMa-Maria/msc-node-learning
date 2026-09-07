@@ -1,0 +1,156 @@
+{
+  "dataset": "CODEBRIM classification dataset",
+  "task_definition": {
+    "binary_head": "damage = OR(Crack, Spallation, Efflorescence, ExposedBars, CorrosionStain)",
+    "multi_label_heads": [
+      "Crack",
+      "Spallation",
+      "Efflorescence",
+      "ExposedBars",
+      "CorrosionStain"
+    ],
+    "background": "Background is represented by damage=0 and retained as an audit field.",
+    "warning": "Defect type labels are not ordinal risk or severity levels."
+  },
+  "protocol": {
+    "split_policy": "Retain official train/val/test splits.",
+    "parent_group": "image_NNNNNNN source identifier",
+    "duplicate_policy": "Exclude all exact copies if labels conflict or copies cross splits; otherwise retain one canonical copy within a split.",
+    "test_policy": "Do not use official test images for model selection, calibration, or threshold tuning."
+  },
+  "inventory": {
+    "xml_annotation_records": 7734,
+    "physical_images_joined": 7729,
+    "all_zero_annotation_files_excluded": 52,
+    "all_zero_annotation_paths": [
+      "dataset/codebrim/classification_dataset/train/defects/image_0000987_crop_0000045.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001051_crop_0000011.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001063_crop_0000014.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001093_crop_0000003.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001124_crop_0000004.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001138_crop_0000005.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001148_crop_0000005.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001152_crop_0000001.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001153_crop_0000005.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001153_crop_0000007.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001153_crop_0000008.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001161_crop_0000001.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001172_crop_0000002.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001195_crop_0000012.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001224_crop_0000003.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001226_crop_0000011.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001226_crop_0000013.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001266_crop_0000018.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001283_crop_0000001.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001289_crop_0000017.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001292_crop_0000003.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001354_crop_0000002.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001354_crop_0000003.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001384_crop_0000002.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001396_crop_0000004.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001396_crop_0000005.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001403_crop_0000006.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001415_crop_0000006.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001424_crop_0000006.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001491_crop_0000003.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001506_crop_0000015.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001514_crop_0000007.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001530_crop_0000009.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001533_crop_0000003.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001533_crop_0000004.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001536_crop_0000004.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001555_crop_0000014.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001566_crop_0000020.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001566_crop_0000021.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001566_crop_0000023.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001581_crop_0000012.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001594_crop_0000002.png",
+      "dataset/codebrim/classification_dataset/train/defects/image_0001594_crop_0000005.png",
+      "dataset/codebrim/classification_dataset/val/defects/image_0000300_crop_0000001.png",
+      "dataset/codebrim/classification_dataset/val/defects/image_0000300_crop_0000002.png",
+      "dataset/codebrim/classification_dataset/val/defects/image_0001126_crop_0000002.png",
+      "dataset/codebrim/classification_dataset/val/defects/image_0001159_crop_0000006.png",
+      "dataset/codebrim/classification_dataset/val/defects/image_0001244_crop_0000001.png",
+      "dataset/codebrim/classification_dataset/test/defects/image_0001132_crop_0000005.png",
+      "dataset/codebrim/classification_dataset/test/defects/image_0001176_crop_0000007.png",
+      "dataset/codebrim/classification_dataset/test/defects/image_0001470_crop_0000007.png",
+      "dataset/codebrim/classification_dataset/test/defects/image_0001470_crop_0000008.png"
+    ],
+    "manifest_images_retained": 7677,
+    "metadata_records_without_physical_image": [
+      "image_0001587_crop_0000001.png",
+      "image_0001587_crop_0000002.png",
+      "image_0001587_crop_0000003.png",
+      "image_0001587_crop_0000004.png",
+      "image_0001587_crop_0000005.png"
+    ],
+    "physical_inventory_errors": [],
+    "unique_sha256": 7677,
+    "duplicate_files_beyond_first": 0,
+    "cross_split_duplicate_hashes": 0,
+    "label_conflicting_duplicate_hashes": 0,
+    "within_split_deduplicated_hashes": 0,
+    "files_excluded_by_duplicate_policy": 0
+  },
+  "distribution": {
+    "train": {
+      "images": 6438,
+      "parent_groups": 1249,
+      "damage": {
+        "0": 2185,
+        "1": 4253
+      },
+      "label_counts": {
+        "Background": 2185,
+        "Crack": 2208,
+        "Spallation": 1608,
+        "Efflorescence": 543,
+        "ExposedBars": 1215,
+        "CorrosionStain": 1263
+      },
+      "multi_defect_images": 1640
+    },
+    "val": {
+      "images": 611,
+      "parent_groups": 138,
+      "damage": {
+        "0": 150,
+        "1": 461
+      },
+      "label_counts": {
+        "Background": 150,
+        "Crack": 149,
+        "Spallation": 140,
+        "Efflorescence": 141,
+        "ExposedBars": 142,
+        "CorrosionStain": 146
+      },
+      "multi_defect_images": 183
+    },
+    "test": {
+      "images": 628,
+      "parent_groups": 135,
+      "damage": {
+        "0": 150,
+        "1": 478
+      },
+      "label_counts": {
+        "Background": 150,
+        "Crack": 150,
+        "Spallation": 150,
+        "Efflorescence": 149,
+        "ExposedBars": 150,
+        "CorrosionStain": 150
+      },
+      "multi_defect_images": 167
+    }
+  },
+  "sanity": {
+    "parent_groups_crossing_splits": 0,
+    "exact_hashes_crossing_splits_after_policy": 0,
+    "storage_class_label_mismatches": 0,
+    "storage_class_label_mismatch_examples": []
+  },
+  "duplicate_records": [],
+  "claims_boundary": "CODEBRIM supports visual defect evidence classification. It does not provide certified structural severity, safety, or collapse-probability labels."
+}

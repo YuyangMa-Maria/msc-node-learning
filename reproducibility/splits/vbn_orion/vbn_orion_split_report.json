@@ -1,0 +1,25 @@
+{
+  "dataset": "ORION-AE F50A sensor subset",
+  "purpose": "Small structural time-series proxy for VBN model and interface experiments.",
+  "protocol": {
+    "assignment": "Sort file names within each torque level, then assign the first 60% to train, next 20% to validation, and final 20% to test.",
+    "seed": null,
+    "binary_labels": {
+      "0": "5 and 10 cNm low-torque proxy",
+      "1": "40, 50 and 60 cNm high-torque proxy"
+    },
+    "excluded_from_binary": "20 and 30 cNm"
+  },
+  "distribution": {
+    "all_records": {"total": 69, "train": 41, "val": 14, "test": 14},
+    "binary_records": {"total": 50, "train": 30, "val": 10, "test": 10},
+    "binary_class_0": {"total": 20, "train": 12, "val": 4, "test": 4},
+    "binary_class_1": {"total": 30, "train": 18, "val": 6, "test": 6}
+  },
+  "limitations": [
+    "The subset is small and comes from one controlled measurement sequence.",
+    "Adjacent files within a torque condition are not independent structures.",
+    "The labels are bolt-torque proxies, not building damage or collapse labels.",
+    "The sensor is contact acoustic emission, not an MPU6050 accelerometer."
+  ]
+}

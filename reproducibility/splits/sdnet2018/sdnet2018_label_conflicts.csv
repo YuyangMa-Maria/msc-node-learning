@@ -1,0 +1,3 @@
+sha256,labels,paths,action
+b3ace75a69b5c5a28695dd9dcaddfa3b2efbf88ad533773dc1e0169a9f85520b,0|1,dataset/sdnet2018/Decks/Non-cracked/7039-112_2.jpg|dataset/sdnet2018/Decks/Cracked/7039-112.jpg,excluded_all_copies
+b85d1a85d3f5609e4d76cdfc2e21c064295ca0e0b688829764f836bd63a99bca,0|1,dataset/sdnet2018/Walls/Non-cracked/7074-105_2.jpg|dataset/sdnet2018/Walls/Cracked/7074-105.jpg,excluded_all_copies

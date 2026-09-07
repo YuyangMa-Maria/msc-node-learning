@@ -1,0 +1,111 @@
+{
+  "dataset_root": "dataset",
+  "metadata_verified": "2026-09-03",
+  "datasets": [
+    {
+      "id": "multimodal_concrete_crack",
+      "path": "multimodal-concrete-crack-detection-dataset",
+      "source_url": "https://www.kaggle.com/datasets/rupankarmajumdar/multimodal-concrete-crack-detection-dataset",
+      "version": "Kaggle version 1, published 2026-03-08",
+      "citation": ["majumdar2026multimodal"],
+      "access_notes": "Public data card; downloading through the website or Kaggle API normally requires a Kaggle account and acceptance of Kaggle terms.",
+      "licence": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "identifier": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "redistribution": "Redistribution is permitted with attribution, but the raw dataset is intentionally not included in this repository."
+      },
+      "modalities": ["image", "audio"],
+      "labels": ["normal", "abnormal"],
+      "role": "paired_primary",
+      "used_for": ["VSN baseline", "ASN baseline", "paired VSN-ASN fusion"],
+      "subset_used": "All 4,094 image-audio pairs listed by the local dataset.csv were indexed; the formal test partition contains 596 paired events.",
+      "expected_layout": "dataset.csv plus image/positive, image/negative, audio/positive, and audio/negative directories",
+      "notes": "Paired proxy data used for cross-modal split alignment and decision fusion. Airborne audio is not laboratory acoustic emission."
+    },
+    {
+      "id": "mendeley_concrete_crack_classification",
+      "path": "concrete-crack-images-for-classification-mendeley",
+      "source_url": "https://data.mendeley.com/datasets/5y9wdsg2zt/2",
+      "version": "Version 2, published 2019-07-23, DOI 10.17632/5y9wdsg2zt.2",
+      "citation": ["ozgenel2019concrete_crack_data", "ozgenel2018performance"],
+      "access_notes": "Public Mendeley Data download; no account was required when the source metadata was verified.",
+      "licence": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "identifier": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "redistribution": "Redistribution is permitted with attribution, but the images are not duplicated in this source submission."
+      },
+      "modalities": ["image"],
+      "labels": ["Positive", "Negative"],
+      "role": "visual_baseline",
+      "used_for": ["VSN teacher selection", "binary crack classification", "formal grouped VSN split"],
+      "subset_used": "All 40,000 images (20,000 Positive and 20,000 Negative) were considered before cross-dataset exact and perceptual deduplication.",
+      "expected_layout": "Positive and Negative directories containing 227 x 227 RGB JPEG images",
+      "notes": "Clean binary crack images generated as patches from 458 high-resolution source images."
+    },
+    {
+      "id": "codebrim",
+      "path": "codebrim/classification_dataset",
+      "source_url": "https://zenodo.org/records/2620293",
+      "version": "Version 1.0, published 2019-04-01, DOI 10.5281/zenodo.2620293",
+      "citation": ["mundt2019codebrim_data", "mundt2019metalearning"],
+      "access_notes": "Download CODEBRIM_classification_dataset.zip from Zenodo. No account is normally required, but use is conditional on the accompanying custom licence.",
+      "licence": {
+        "name": "CODEBRIM custom non-commercial research and education licence",
+        "identifier": "LicenseRef-CODEBRIM-Research-Only",
+        "url": "https://zenodo.org/records/2620293/files/license.md?download=1",
+        "redistribution": "The database and modified versions must not be redistributed. Derived annotations or trained models that do not directly contain the data may be shared for non-commercial research and education under the stated terms."
+      },
+      "modalities": ["image"],
+      "labels": ["Crack", "Spallation", "Efflorescence", "ExposedBars", "CorrosionStain"],
+      "role": "visual_multitask",
+      "used_for": ["multi-label VSN", "multi-task VSN", "quality-aware VSN"],
+      "subset_used": "Only the unbalanced classification dataset was used. Of 7,729 physical images joined to annotations, 7,677 were retained after excluding 52 all-zero annotation records.",
+      "expected_layout": "classification_dataset/{train,val,test}/{background,defects}; expected archive MD5 c1612d9674e2e628e72e7f5817c40130",
+      "notes": "The official train/validation/test assignment was retained, and crops from one parent image remain in one split. Labels denote visible defect types, not structural severity."
+    },
+    {
+      "id": "sdnet2018",
+      "path": "sdnet2018",
+      "source_url": "https://digitalcommons.usu.edu/all_datasets/48/",
+      "version": "Published 2018-05-17, DOI 10.15142/T3TD19",
+      "citation": ["maguire2018sdnet2018_data", "dorafshan2018sdnet2018"],
+      "access_notes": "Public direct download from Utah State University; no account was required when the source metadata was verified.",
+      "licence": {
+        "name": "Creative Commons Attribution 4.0 International",
+        "identifier": "CC-BY-4.0",
+        "url": "https://creativecommons.org/licenses/by/4.0/",
+        "redistribution": "Redistribution is permitted with attribution; this repository supplies manifests rather than the image archive."
+      },
+      "modalities": ["image"],
+      "labels": ["cracked", "non_cracked"],
+      "role": "visual_transfer",
+      "used_for": ["zero-shot evaluation", "transfer learning", "mixed-domain VSN"],
+      "subset_used": "Deck, pavement, and wall subsets were scanned. The frozen grouped manifest retains 56,088 images after excluding four files involved in conflicting exact-hash labels.",
+      "expected_layout": "Decks, Pavements, and Walls directories, each with Cracked and Non-cracked subdirectories",
+      "notes": "Parent patches from the same original surface image are grouped before the 70/15/15 split."
+    },
+    {
+      "id": "orion_ae_sensor_b_subset",
+      "path": "orion-ae-sensor-b-subset",
+      "source_url": "https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FBRDU0",
+      "version": "Harvard Dataverse version 1.1, released 2022-03-04, DOI 10.7910/DVN/FBRDU0",
+      "citation": ["ramasso2022orion_ae_data", "ramasso2022monitoring"],
+      "access_notes": "Public Harvard Dataverse dataset. Download only the required measurement campaign/sensor files to avoid acquiring the complete multi-gigabyte collection.",
+      "licence": {
+        "name": "Creative Commons Zero 1.0 Universal",
+        "identifier": "CC0-1.0",
+        "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "redistribution": "The source data are released under CC0, but this repository contains only the derived split manifest."
+      },
+      "modalities": ["acoustic emission time series"],
+      "labels": ["bolt torque condition"],
+      "role": "structural_time_series_proxy",
+      "used_for": ["VBN baseline comparison", "three-node fusion stress test"],
+      "subset_used": "A 69-file F50A sensor subset from one measurement sequence was indexed. The binary proxy uses 50 files: 5/10 cNm as class 0 and 40/50/60 cNm as class 1; 20/30 cNm records are excluded from the binary task.",
+      "expected_layout": "Selected .mat files named salves_out_<torque>cNm_B_Fs5MHz_Tf1s_<timestamp>_1.mat",
+      "notes": "A controlled bolted-joint acoustic-emission proxy, not physical MPU6050 building-vibration validation."
+    }
+  ]
+}

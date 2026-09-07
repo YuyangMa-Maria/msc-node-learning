@@ -1,0 +1,154 @@
+{
+  "dataset": "SDNET2018",
+  "purpose": "Frozen leakage-resistant target-domain split for VSN zero-shot and transfer experiments.",
+  "protocol": {
+    "grouping": "All patches with the same surface and original-image filename prefix remain together.",
+    "exact_duplicate_policy": "Parent groups connected by an exact SHA-256 duplicate are merged before assignment.",
+    "assignment": "Random-search grouped assignment minimising surface-by-label distribution error.",
+    "ratios": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15
+    },
+    "seed": 2026,
+    "trials": 50000,
+    "test_freeze_policy": "The test split must not be used for target-domain training, threshold selection, or calibration."
+  },
+  "inventory": {
+    "physical_images_scanned": 56092,
+    "images_retained": 56088,
+    "label_conflicting_files_excluded": 4,
+    "labels": {
+      "cracked": 8482,
+      "non_cracked": 47606
+    },
+    "surfaces": {
+      "Decks": 13618,
+      "Pavements": 24334,
+      "Walls": 18136
+    },
+    "unique_sha256": 56079,
+    "duplicate_files_beyond_first": 13,
+    "cross_parent_duplicate_hashes": 0,
+    "parent_groups": 230,
+    "duplicate_safe_components": 230,
+    "label_conflicting_hashes": 2
+  },
+  "label_conflict_records": [
+    {
+      "sha256": "b3ace75a69b5c5a28695dd9dcaddfa3b2efbf88ad533773dc1e0169a9f85520b",
+      "paths": [
+        "dataset/sdnet2018/Decks/Non-cracked/7039-112_2.jpg",
+        "dataset/sdnet2018/Decks/Cracked/7039-112.jpg"
+      ],
+      "labels": [
+        0,
+        1
+      ]
+    },
+    {
+      "sha256": "b85d1a85d3f5609e4d76cdfc2e21c064295ca0e0b688829764f836bd63a99bca",
+      "paths": [
+        "dataset/sdnet2018/Walls/Non-cracked/7074-105_2.jpg",
+        "dataset/sdnet2018/Walls/Cracked/7074-105.jpg"
+      ],
+      "labels": [
+        0,
+        1
+      ]
+    }
+  ],
+  "assignment_score": 0.029634248962145122,
+  "distribution": {
+    "train": {
+      "images": 39258,
+      "labels": {
+        "cracked": 6002,
+        "non_cracked": 33256
+      },
+      "surfaces": {
+        "Decks": 9584,
+        "Pavements": 17082,
+        "Walls": 12592
+      },
+      "surface_labels": {
+        "Decks": {
+          "cracked": 1447,
+          "non_cracked": 8137
+        },
+        "Pavements": {
+          "cracked": 1848,
+          "non_cracked": 15234
+        },
+        "Walls": {
+          "cracked": 2707,
+          "non_cracked": 9885
+        }
+      },
+      "parent_groups": 161,
+      "components": 161
+    },
+    "val": {
+      "images": 8296,
+      "labels": {
+        "cracked": 1190,
+        "non_cracked": 7106
+      },
+      "surfaces": {
+        "Decks": 2016,
+        "Pavements": 3508,
+        "Walls": 2772
+      },
+      "surface_labels": {
+        "Decks": {
+          "cracked": 298,
+          "non_cracked": 1718
+        },
+        "Pavements": {
+          "cracked": 365,
+          "non_cracked": 3143
+        },
+        "Walls": {
+          "cracked": 527,
+          "non_cracked": 2245
+        }
+      },
+      "parent_groups": 34,
+      "components": 34
+    },
+    "test": {
+      "images": 8534,
+      "labels": {
+        "cracked": 1290,
+        "non_cracked": 7244
+      },
+      "surfaces": {
+        "Decks": 2018,
+        "Pavements": 3744,
+        "Walls": 2772
+      },
+      "surface_labels": {
+        "Decks": {
+          "cracked": 279,
+          "non_cracked": 1739
+        },
+        "Pavements": {
+          "cracked": 395,
+          "non_cracked": 3349
+        },
+        "Walls": {
+          "cracked": 616,
+          "non_cracked": 2156
+        }
+      },
+      "parent_groups": 35,
+      "components": 35
+    }
+  },
+  "sanity": {
+    "component_cross_split_errors": 0,
+    "parent_group_cross_split_errors": 0,
+    "exact_hash_cross_split_errors": 0
+  },
+  "claims_boundary": "The split supports visual crack domain-shift evaluation. It does not provide structural failure probabilities or post-disaster field validation."
+}

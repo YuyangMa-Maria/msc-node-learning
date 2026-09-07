@@ -1,22 +1,28 @@
-# Dataset and Data processing
-data/raw/
-data/processed/
+# Local data and generated experiment artefacts. Exact final split manifests
+# are tracked separately under reproducibility/splits/.
+dataset/
+experiments/
+outputs/
+artifacts/
+runs/
 
-# Model checkpoints and logs
-outputs/checkpoints/
-outputs/logs/
-*.pt
-*.pth
-*.onnx
-*.tflite
-
-# Python caches
+# Python
+.venv*/
 __pycache__/
 *.py[cod]
-*$py.class
-.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
 
-# Environment variables
-.env
-.venv/
-env/
+# ESP-IDF build products
+firmware/**/build/
+firmware/**/sdkconfig
+firmware/**/dependencies.lock
+firmware/**/managed_components/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

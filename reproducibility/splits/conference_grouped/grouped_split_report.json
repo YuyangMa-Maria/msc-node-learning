@@ -1,0 +1,85 @@
+{
+  "purpose": "Publication-oriented leakage-resistant VSN/ASN split construction.",
+  "protocol": {
+    "exact_duplicate_policy": "Retain one canonical image per SHA-256 content hash.",
+    "near_duplicate_policy": "Place canonical images with 64-bit pHash Hamming distance <= 4 in the same split when labels agree.",
+    "cross_modal_policy": "Assign each ASN audio row to the split of its paired image content group.",
+    "ratios": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15
+    },
+    "seed": 2026
+  },
+  "input": {
+    "vsn_rows": 44094,
+    "asn_rows": 4094,
+    "unique_exact_images": 38402
+  },
+  "grouping": {
+    "exact_duplicate_rows_removed": 5692,
+    "perceptual_groups": 33371,
+    "near_hash_links": 5165,
+    "largest_group_size": 11,
+    "groups_larger_than_one": 4729,
+    "label_conflict_links_not_merged": 0,
+    "missing_asn_pairs": 0,
+    "cross_split_group_errors": 0
+  },
+  "output": {
+    "vsn_index": "reproducibility/splits/conference_grouped/vsn_binary_index_grouped.csv",
+    "asn_index": "reproducibility/splits/conference_grouped/asn_audio_index_grouped.csv",
+    "vsn": {
+      "total": 38402,
+      "split_counts": {
+        "val": 5761,
+        "train": 26880,
+        "test": 5761
+      },
+      "label_counts": {
+        "train": {
+          "0": 13102,
+          "1": 13778
+        },
+        "val": {
+          "0": 2808,
+          "1": 2953
+        },
+        "test": {
+          "0": 2808,
+          "1": 2953
+        }
+      }
+    },
+    "asn": {
+      "total": 4094,
+      "split_counts": {
+        "test": 596,
+        "train": 2868,
+        "val": 630
+      },
+      "label_counts": {
+        "train": {
+          "0": 2247,
+          "1": 621
+        },
+        "val": {
+          "0": 501,
+          "1": 129
+        },
+        "test": {
+          "1": 140,
+          "0": 456
+        }
+      }
+    }
+  },
+  "limitations": [
+    "Perceptual grouping is a conservative automated approximation, not specimen/session metadata.",
+    "Large transitive pHash groups should be inspected before final publication use.",
+    "All local encoders must be retrained from scratch on these new indices.",
+    "VBN remains a separate proxy dataset."
+  ],
+  "label_conflict_examples": [],
+  "missing_pair_examples": []
+}

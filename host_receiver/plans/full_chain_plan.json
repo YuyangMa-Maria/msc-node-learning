@@ -1,0 +1,10 @@
+[
+  {"at_s": 2, "command": "SYSTEM RESTART"},
+  {"at_s": 20, "command": "STATUS"},
+  {"at_s": 30, "command": "MARH JOIN"},
+  {"at_s": 40, "command": "MODEL PUSH"},
+  {"at_s": 55, "command": "MODEL PULL"},
+  {"at_s": 70, "command": "MODEL ROLLBACK"},
+  {"at_s": 80, "command": "MARH LEAVE"},
+  {"at_s": 90, "command": "STATUS"}
+]

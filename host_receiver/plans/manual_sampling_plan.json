@@ -1,0 +1,12 @@
+[
+  {"at_s": 3, "command": "MODE MANUAL"},
+  {"at_s": 8, "command": "SAMPLE VSN"},
+  {"at_s": 14, "command": "SAMPLE ASN"},
+  {"at_s": 24, "command": "SAMPLE BOTH"},
+  {"at_s": 36, "command": "MARH JOIN"},
+  {"at_s": 40, "command": "MODEL PUSH"},
+  {"at_s": 46, "command": "MODEL PULL"},
+  {"at_s": 52, "command": "MARH LEAVE"},
+  {"at_s": 56, "command": "MODE AUTO"},
+  {"at_s": 66, "command": "STATUS"}
+]
